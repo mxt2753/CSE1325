@@ -10,7 +10,8 @@ public class Hello
 {
 	public static void main(String[] args) 
 	{
-	    String username = System.getProperty("user.name");
-		System.out.println("Hello, "+ username + "!"); 
+	    String userNameEmailFromTerminal = System.getProperty("user.name");//getProperty from I'm pretty sure form the library
+	    //If you do user.Name with a capital N you get "hello null!" interesting
+		System.out.println("Hello, "+ userNameEmailFromTerminal + "!");
 	}
 }
