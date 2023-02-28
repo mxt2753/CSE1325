@@ -1,5 +1,11 @@
+/*
+Name: Mary-Rose Tracy 
+ID#:1001852753 
+Assignment: P05 Email
+TODO: see program comments below
+we ain't gonna do touch this file essentially
+*/
 import java.util.Arrays; // A class filled with useful static methods related to classic arrays
-
 public class TestStore 
 {
     public static void main(String[] args) 
