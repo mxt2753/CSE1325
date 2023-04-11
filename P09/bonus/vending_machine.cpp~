@@ -1,0 +1,33 @@
+#include "vending_machine.h"
+//Name: Mary-Rose Tracy
+//ID#:1001852753
+//Vending_Machine.cpp
+/*
+Vending_machine:
+-items : Item[] <<vector>>
++add(name : std::string, price : int)
++buy(index : int)
++menu() : std::string
+*/ 
+void vending_machine::add(std::string name,int price)
+{
+    items.push_back(Item{name, price});
+    //now use push back instead of emplace_back & item() the original
+}
+void vending_machine::buy(int index)
+{
+    if(index>=0&&index<items.size())
+    {
+        std::cout<<"\n#### Buying "<<items[index]<<std::endl;
+    }
+}
+// menu let's do it a little different
+std::ostream& operator<<(std::ostream& OStrem,const vending_machine& VendMachinePrint)
+{
+    for(size_t i=0;i<VendMachinePrint.items.size();++i)
+    {
+        OStrem<<i<<") "<<VendMachinePrint.items[i]<<"\n";
+    }
+    return OStrem;
+}
+

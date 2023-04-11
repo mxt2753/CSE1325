@@ -1,0 +1,41 @@
+#include "item.h"
+//Name: Mary-Rose Tracy
+//ID#:1001852753
+//item.cpp
+#include <iomanip>
+//#include <sstream>
+#include <stdexcept>
+/*Item:
+-_name : std::string
+-_price : int
++Item()
++Item(name : std::string, price : int)
++operator<<(os : std::ostream&, item : Item& <<const>> ) : std::ostream&<<friend>>
++operator>>(is : std::istream&, item : Item&) : std::istream& <<friend>>
+
+*/
+Item::Item():_name{""},_price{0}
+{
+    //We don't put anything in here 
+}
+Item::Item(std::string name,int price):_name{name},_price{price}
+{
+    if(price<0)
+    {
+        throw std::runtime_error("Price is not possibly negative...exiting\n");
+    }
+}
+//use os instead of OStringstr
+std::ostream& operator<<(std::ostream& os,const Item& item) //kind of the same with OS Stream
+{
+    os<<item._name<<" ($"<<std::fixed<<std::setprecision(2)<<item._price/100.0<<")";
+    return os;
+}
+std::istream& operator>>(std::istream& is,Item& item) //kind of the same with istream
+{
+    std::getline(is,item._name);
+    std::string price_str;
+    std::getline(is, price_str);
+    item._price = std::stoi(price_str);
+    return is;
+}

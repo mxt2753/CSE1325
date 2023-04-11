@@ -1,0 +1,22 @@
+//Name: Mary-Rose Tracy
+//ID#:1001852753
+//vend.cpp
+#include <iostream>
+#include "vending_machine.h"
+//Vend:
+//+main() : int
+int main()
+{
+    
+    vending_machine VendMachinePrint; //no capital????
+    VendMachinePrint.add("Peanut butter crackers", 169); //option )
+    VendMachinePrint.add("Oreos", 189);// Option 1
+    //Now The Default of what is going to print
+    //22 = ='s 
+    std::cout<<"======================\n";
+    std::cout<<"Welcome to UTA Vending\n";
+    std::cout<<"======================\n";
+    std::cout<<VendMachinePrint.menu(); //print everything on the menu 
+    VendMachinePrint.buy(1); //then print the oreos
+    return 0;//return & ur done!
+}
