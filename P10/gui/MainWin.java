@@ -1,5 +1,5 @@
 package gui;
-
+//credit to Prof Rice 
 import store.Store;
 import store.Customer;
 import store.Option;
