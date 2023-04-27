@@ -1,0 +1,255 @@
+====================
+HOMEWORK P12 RESULTS
+====================
+
+Spring 2023
+
+NOTE: We will not be grading for "correct" answers, since your results may vary, but rather answers that are consistent with your measured results.
+
+IMPORTANT: If at all possible, time your program on a machine with at least 4 cores. (CSE VM may be configured to use multiple cores in the VirtualBox properties panel.)
+
+FULL CREDIT
+===========
+QUESTION 1: Which puzzle did you use as ThreadsOfSudoku's parameter to achieve a 30+ second runtime (using "real"):
+time java ThreadsOfSudoku 1 puzzle.txt #_zeros
+
+
+Thread 1 00_zeros: 
+real	0m0.507s
+user	0m0.403s
+sys	0m0.045s
+Thread 1 01_zeros: 
+real	0m0.517s
+user	0m0.418s
+sys	0m0.039s
+//so it's gonna take forever to do all of them one by one. so i skipped to 5,10, did 15 and it was taking  long time. so I then halfed the 5 in 15 to do 13. 
+05
+real	0m0.308s
+user	0m0.394s
+sys	0m0.078s
+10
+real	0m0.645s
+user	0m0.835s
+12
+sys	0m0.113s
+real	0m4.518s
+user	0m5.683s
+sys	0m0.130s
+
+time java ThreadsOfSudoku 1 puzzle.txt 13_zeros
+real	0m31.121s
+user	0m31.882s
+sys	0m0.259s
+reran: 
+real	0m29.376s
+user	0m30.309s
+sys	0m0.231s
+Close enough so 13_zeros
+time java ThreadsOfSudoku 1 puzzle.txt 14_zeros
+real	3m19.507s
+user	3m18.996s
+sys	0m0.553s
+reran
+real	3m21.865s
+user	3m22.261s
+sys	0m0.551s
+
+//weird that it's more at 14. maybe my internet is failing lol
+
+
+
+
+
+QUESTION 2: Provide the full ``time`` output for your program, with 1 to 16 threads. It may prove interesting to screenshot your system monitor while these run. You may be able to run all of these with a single bash command if you like (replace 14_zeros with your puzzle from QUESTION 1): 
+
+for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+Example Timing (first 2 of 16 runs only on Antares):
+
+ricegf@antares$ for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+ Threads 1:
+
+real	2m0.684s
+user	2m0.919s
+sys	0m0.292s
+
+ Threads 2:
+
+real	1m4.553s
+user	2m7.003s
+sys	0m0.252s
+
+
+
+YOUR Timing:
+time java ThreadsOfSudoku 1 puzzle.txt 13_zeros
+Thread 1: 
+real	0m23.166s
+user	0m23.755s
+sys	0m0.099s
+
+Thread 2: 
+real	0m14.835s
+user	0m28.625s
+sys	0m0.172s
+Thread 3: 
+real	0m14.297s
+user	0m39.217s
+sys	0m0.207s
+Thread 4: 
+real	0m14.813s
+user	0m45.183s
+sys	0m0.769s
+Thread 5: 
+real	0m14.182s
+user	0m50.607s
+sys	0m0.498s
+Thread 6: 
+real	0m13.881s
+user	0m47.303s
+sys	0m0.787s
+
+Thread 7:
+real	0m11.822s
+user	0m42.255s
+sys	0m0.412s
+Thread 8: 
+real	0m13.579s
+user	0m48.982s
+sys	0m0.662s
+Thread 9:
+real	0m14.542s
+user	0m50.393s
+sys	0m0.670s
+Thread 10: 
+real	0m12.208s
+user	0m44.445s
+sys	0m0.313s
+Thread 11:
+real	0m14.212s
+user	0m53.707s
+sys	0m0.395s
+Thread 12:
+real	0m13.653s
+user	0m49.218s
+sys	0m0.424s
+Thread 13: 
+real	0m11.772s
+user	0m43.968s
+sys	0m0.361s
+Thread 14: 
+real	0m13.903s
+user	0m49.711s
+sys	0m0.677s
+Thread 15:
+real	0m12.330s
+user	0m45.385s
+sys	0m0.458s
+Thread 16:
+real	0m14.850s
+user	0m51.455s
+sys	0m1.260s
+
+////////for 14
+time java ThreadsOfSudoku 1 puzzle.txt 14_zeros
+Thread 1:
+real	3m14.903s
+user	3m15.867s
+sys	0m0.422s
+Thread 2: 
+real	2m28.233s
+user	4m41.582s
+sys	0m0.737s
+Thread 3:
+real	2m4.846s
+user	5m34.500s
+sys	0m0.741s
+Thread 4:
+real	1m30.040s
+user	5m7.111s
+sys	0m1.475s
+Thread 5: 
+real	1m28.152s
+user	5m25.022s
+sys	0m1.135s
+Thread 6: 
+real	1m26.403s
+user	5m26.085s
+sys	0m2.421s
+
+Thread 7:
+real	1m34.643s
+user	5m48.798s
+sys	0m1.638s
+Thread 8:
+real	1m35.795s
+user	6m12.064s
+sys	0m1.662s
+Thread 9: 
+real	1m27.982s
+user	5m42.316s
+sys	0m1.558s
+Thread 10:
+real	1m25.608s
+user	5m29.772s
+sys	0m1.666s
+Thread 11:
+real	1m27.517s
+user	5m36.205s
+sys	0m1.683s
+Thread 12:
+real	1m45.065s
+user	6m11.088s
+sys	0m1.606s
+Thread 13:
+real	1m30.416s
+user	5m45.629s
+sys	0m2.978s
+Thread 14: 
+real	1m31.861s
+user	5m14.839s
+sys	0m1.280s
+Thread 15:
+real	1m29.783s
+user	5m37.275s
+sys	0m1.352s
+Thread 16: 
+real	1m26.845s
+user	5m34.926s
+sys	0m1.378s
+
+
+
+
+QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
+So it did make it go faster for a while. However, after thread 7 it kind of stagnated and wavy alomost. I took a course called algorithms and data structures. We had a very similar assignment to this in that this is supposed to show that a certain sort is acurate, and the fasted with a certain thred. However, after that certain point it becomes EXTREMELY all of the place in time, and it stalls. There's a certain graph for it in algorithms and data structures, but essentially there's too many threads it gets more time consuming for the comuputer to sort aka solve.  
+
+
+
+
+QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
+Check above answer^. However, after thread 7 it goes a little high, a little down. Before that it gets significantly shorter. 
+
+
+
+
+BONUS //I'M ASSUMING THIS IS FOR THE BONUS & EXTREME BONUS
+=====
+
+QUESTION 5: Time your thread pool version of ThreadsOfSudoku as you did for the full credit version. Post your timings here.
+
+YOUR Timing:
+
+
+
+
+
+
+QUESTION 6: Is a thread pool faster, slower, or roughly equivalent in performance? 
+
+
+
+QUESTION 7: Compare the full credit and bonus solution code. Which do you believe is more supportable over a long lifetime of evolving hardware and environments?
+
+
